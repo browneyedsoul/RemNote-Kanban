@@ -6,10 +6,12 @@
   "scripts": {
     "check-types": "tsc",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --color --progress --no-open",
-    "build": "npx remnote-plugin validate && shx rm -rf dist && cross-env NODE_ENV=production webpack --color --progress && shx cp README.md dist && cd dist && bestzip ../PluginZip.zip ./*"
+    "build": "npx remnote-plugin validate && shx rm -rf dist && cross-env NODE_ENV=production webpack --color --progress && shx cp README.md dist && cd dist && bestzip ../PluginZip.zip ./*",
+    "tw": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "sass": "sass --watch --style=compressed --no-source-map src/scss/kanban.scss:src/kanban.css"
   },
   "dependencies": {
-    "@remnote/plugin-sdk": "^0.0.14",
+    "@remnote/plugin-sdk": "^0.0.22",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -30,8 +32,11 @@
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^7.0.0",
+    "prettier": "^2.8.2",
     "react-refresh": "^0.14.0",
+    "sass": "^1.57.1",
     "shx": "^0.3.4",
+    "style-loader": "^3.3.1",
     "tailwindcss": "^3.1.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4",
