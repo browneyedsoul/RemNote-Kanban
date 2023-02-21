@@ -1,8 +1,8 @@
 # RemNote Kanban
 
-![logo](./public/logo.png)
+![logo](https://raw.githubusercontent.com/browneyedsoul/RemNote-Kanban/main/public/logo.png)
 
-![demo](./public/demo.webp)
+![demo](https://raw.githubusercontent.com/browneyedsoul/RemNote-Kanban/main/public/demo.webp)
 
 ## Usage
 
