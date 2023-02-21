@@ -6,7 +6,7 @@ let Kanban: string;
 
 async function onActivate(plugin: ReactRNPlugin) {
   try {
-    await fetch("kanban.css")
+    await fetch("snippet.css")
       .then((response) => response.text())
       .then((text) => {
         Kanban = text;
@@ -15,7 +15,7 @@ async function onActivate(plugin: ReactRNPlugin) {
       .catch((error) => console.error(error));
     await plugin.app.registerCSS("Kanban", Kanban);
   } catch (error) {
-    await fetch("https://raw.githubusercontent.com/browneyedsoul/RemNote-Kanban/main/src/kanban.css")
+    await fetch("https://raw.githubusercontent.com/browneyedsoul/RemNote-Kanban/main/src/snippet.css")
       .then((response) => response.text())
       .then((text) => {
         Kanban = text;

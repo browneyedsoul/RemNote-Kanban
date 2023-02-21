@@ -83,7 +83,7 @@ const config = {
       patterns: [
         { from: "public", to: "" },
         { from: "README.md", to: "" },
-        { from: "src/kanban.css", to: "" },
+        { from: "src/snippet.css", to: "" },
       ],
     }),
     fastRefresh,
