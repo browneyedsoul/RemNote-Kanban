@@ -6,8 +6,8 @@
   "repoUrl": "https://github.com/browneyedsoul/RemNote-Kanban",
   "version": {
     "major": 0,
-    "minor": 1,
-    "patch": 5
+    "minor": 2,
+    "patch": 0
   },
   "theme": [],
   "enableOnMobile": true,
