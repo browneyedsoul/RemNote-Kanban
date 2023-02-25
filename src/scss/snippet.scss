@@ -50,6 +50,7 @@
         padding-left: 0;
         overflow-x: auto;
         white-space: pre;
+        margin-top: 0.5rem;
         
         &::-webkit-scrollbar-thumb {
             background-color: $kanban-scroll-bg;
