@@ -21,6 +21,8 @@
     --kanban-bg-vt-dark: #592C50;
     --kanban-bg-input: #FFF;
     --kanban-bg-input-dark: #232329;
+    --kanban-sdw: 1px 1px 2px #999;
+    --kanban-sdw-dark: 1px 1px 2px #000;
 }
 
 @mixin kanban(
@@ -37,7 +39,9 @@
     $kanban-bg-inbox,
     $kanban-bg-inprogress,
     $kanban-bg-done,
-    $kanban-sixdot) {
+    $kanban-sixdot,
+    $kanban-sdw
+) {
 
     %KanbanCol {
         display: flex;
@@ -57,11 +61,12 @@
             margin-right: .7rem;
             margin-bottom: .5rem;
             padding-right: .7rem;
-            padding-bottom: 5px;
+            padding-bottom: .7rem;
             position: relative;
             white-space: pre-wrap;
             border-radius: .5rem;
             min-width: fit-content;
+            box-shadow: $kanban-sdw;
             &:has(> .tree-node--parent > .highlight-color--red) {
                 background-color: $kanban-bg-rd;
             }
@@ -239,7 +244,8 @@
     var(--kanban-bg-inbox),
     var(--kanban-bg-inprogress),
     var(--kanban-bg-done),
-    var(--kanban-sixdot)
+    var(--kanban-sixdot),
+    var(--kanban-sdw)
 );
 .dark {
     @include kanban(
@@ -256,6 +262,7 @@
         var(--kanban-bg-inbox-dark),
         var(--kanban-bg-inprogress-dark),
         var(--kanban-bg-done-dark),
-        var(--kanban-sixdot-dark)
+        var(--kanban-sixdot-dark),
+        var(--kanban-sdw-dark)
     );
 }
