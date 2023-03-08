@@ -23,6 +23,8 @@
     --kanban-bg-input-dark: #232329;
     --kanban-sdw: 1px 1px 2px #999;
     --kanban-sdw-dark: 1px 1px 2px #000;
+    --kanban-sdw-cell: 0.05rem 0.05rem 0.15rem #777;
+    --kanban-sdw-cell-dark: 0.05rem 0.05rem 0.15rem #000;
 }
 
 @mixin kanban(
@@ -40,7 +42,8 @@
     $kanban-bg-inprogress,
     $kanban-bg-done,
     $kanban-sixdot,
-    $kanban-sdw
+    $kanban-sdw,
+    $kanban-sdw-cell
 ) {
 
     %KanbanCol {
@@ -50,7 +53,10 @@
         padding-left: 0;
         overflow-x: auto;
         white-space: pre;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: .5rem;
+        margin-left: 0;
+        padding-left: 1.5rem;
         
         &::-webkit-scrollbar-thumb {
             background-color: $kanban-scroll-bg;
@@ -155,9 +161,9 @@
                 // Input Area
                 > .animate-zoom-into-bullet {
                     background-color: $kanban-bg-input;
-                    margin: 3px;
-                    border-radius: 3px;
-                    box-shadow: 0 0 1px 0;
+                    margin: .25rem .2rem;
+                    border-radius: .3rem;
+                    box-shadow: $kanban-sdw-cell;
                     margin-left: 1.2rem;
                     padding-bottom: 0.1rem;
 
@@ -175,13 +181,19 @@
                 // Input Area - Portal
                 > .portal-tree-node-box {
                     background-color: $kanban-bg-input;
-                    width: calc(100% - 3.6rem);
+                    width: calc(100% - 2.55rem);
                     margin: 5px;
-                    border-radius: 3px !important;
-                    box-shadow: 0 0 1px 0 !important;
+                    border-radius: .3rem !important;
+                    box-shadow: $kanban-sdw-cell !important;
                     margin-left: 1.2rem !important;
                     margin-right: .3rem !important;
                     padding-right: 1rem;
+                    .node-top-level-in-portal {
+                        overflow-x: auto;
+                        .rn-editor__rem__body__text {
+                            flex-wrap: unset;
+                        }
+                    }
                 }
             }
         }
@@ -210,6 +222,12 @@
                 .text-gray-15 {
                     color: $kanban-sixdot;
                 }
+            }
+            .six-dot,
+            .rn-editor__insert-btn,
+            .toggle-collapse-button,
+            .rn-bullet-container {
+                background: transparent;
             }
         }
         > .tree-node--children {
@@ -246,7 +264,8 @@
     var(--kanban-bg-inprogress),
     var(--kanban-bg-done),
     var(--kanban-sixdot),
-    var(--kanban-sdw)
+    var(--kanban-sdw),
+    var(--kanban-sdw-cell)
 );
 .dark {
     @include kanban(
@@ -264,6 +283,7 @@
         var(--kanban-bg-inprogress-dark),
         var(--kanban-bg-done-dark),
         var(--kanban-sixdot-dark),
-        var(--kanban-sdw-dark)
+        var(--kanban-sdw-dark),
+        var(--kanban-sdw-cell-dark)
     );
 }
