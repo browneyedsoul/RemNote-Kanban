@@ -51,6 +51,7 @@ const config = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       templateContent: `
       <body></body>

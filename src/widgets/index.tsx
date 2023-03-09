@@ -10,7 +10,7 @@ async function onActivate(plugin: ReactRNPlugin) {
       .then((response) => response.text())
       .then((text) => {
         Kanban = text;
-        console.dir("Kanban imported!");
+        console.dir("Kanban plugin installed from local");
       })
       .catch((error) => console.error(error));
     await plugin.app.registerCSS("Kanban", Kanban);
@@ -19,7 +19,7 @@ async function onActivate(plugin: ReactRNPlugin) {
       .then((response) => response.text())
       .then((text) => {
         Kanban = text;
-        console.log("Kanban imported from cdn!");
+        console.log("Kanban plugin installed from cdn");
       })
       .catch((error) => console.error(error));
     await plugin.app.registerCSS("Kanban", Kanban);
