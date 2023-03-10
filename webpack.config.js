@@ -1,21 +1,21 @@
-const { resolve } = require('path');
-var glob = require('glob');
-var path = require('path');
+const { resolve } = require("path");
+var glob = require("glob");
+var path = require("path");
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
-const { ProvidePlugin, BannerPlugin } = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ESBuildMinifyPlugin } = require("esbuild-loader");
+const { ProvidePlugin, BannerPlugin } = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === "production";
 const isDevelopment = !isProd;
 
 const fastRefresh = isDevelopment ? new ReactRefreshWebpackPlugin() : null;
 
-const SANDBOX_SUFFIX = '-sandbox';
+const SANDBOX_SUFFIX = "-sandbox";
 
 const config = {
   mode: isProd ? "production" : "development",
@@ -103,9 +103,9 @@ if (isProd) {
     open: true,
     hot: true,
     compress: true,
-    watchFiles: ['src/*'],
+    watchFiles: ["src/*"],
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Origin": "*",
     },
   };
 }
