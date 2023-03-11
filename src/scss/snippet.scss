@@ -167,13 +167,14 @@
                     box-shadow: $kanban-sdw-cell;
                     margin-left: 1.5rem;
                     padding-bottom: 0.1rem;
-
-                    > .tree-node--children {
-                        .rem {
-                            padding-right: 0.5rem;
+                    &:not([data-rem-container-tags*="table"]) {
+                        > .tree-node--children {
+                            margin-right: .5rem;
+                            .rem {
+                                padding-right: 0.5rem;
+                            }
                         }
                     }
-
                     > div:first-child {
                         .rem-text {
                             padding-left: 25px;
