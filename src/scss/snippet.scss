@@ -6,7 +6,7 @@
     --kanban-sixdot: #000;
     --kanban-sixdot-dark: #EEE;
     --kanban-bg: #EEE;
-    --kanban-bg-dark: #505050;
+    --kanban-bg-dark: #3B3B3B;
     --kanban-bg-rd: #FFEEEB;
     --kanban-bg-rd-dark: #63322B;
     --kanban-bg-or: #FFF0DD;
@@ -24,7 +24,7 @@
     --kanban-sdw: 1px 1px 2px #999;
     --kanban-sdw-dark: 1px 1px 2px #000;
     --kanban-sdw-cell: 0.05rem 0.05rem 0.15rem #777;
-    --kanban-sdw-cell-dark: 0.05rem 0.05rem 0.15rem #000;
+    --kanban-sdw-cell-dark: 0.05rem 0.05rem 0.1rem #111;
 }
 
 @mixin kanban(
@@ -165,7 +165,6 @@
                     border-radius: .3rem;
                     box-shadow: $kanban-sdw-cell;
                     margin-left: 1.5rem;
-                    padding-bottom: 0.1rem;
                     &:not([data-rem-container-tags*="table"]) {
                         > .tree-node--children {
                             margin-right: .5rem;
