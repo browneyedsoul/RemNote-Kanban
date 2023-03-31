@@ -27,6 +27,27 @@
     --kanban-sdw-cell-dark: 0.05rem 0.05rem 0.1rem #111;
 }
 
+$Tables: (
+    "90": 270px,
+    "120": 300px,
+    "150": 330px,
+    "180": 360px,
+    "210": 390px,
+    "240": 420px,
+    "270": 450px,
+    "300": 480px,
+    "330": 510px,
+    "360": 540px,
+    "390": 570px,
+    "420": 600px,
+    "450": 630px,
+    "480": 660px,
+    "510": 690px,
+    "540": 720px,
+    "570": 750px,
+    "600": 780px,
+);
+
 @mixin kanban(
     $kanban-border,
     $kanban-scroll-bg,
@@ -198,6 +219,11 @@
                         }
                     }
                 }
+            }
+        }
+        @each $table, $px in $Tables {
+            [data-rem-container-tags*="table#{$table}"] {
+                min-width: $px;
             }
         }
     }
