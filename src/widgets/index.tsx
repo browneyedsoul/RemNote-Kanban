@@ -6,22 +6,16 @@ let Kanban: string;
 
 async function onActivate(plugin: ReactRNPlugin) {
   try {
-    await fetch("snippet.css")
-      .then((response) => response.text())
-      .then((text) => {
-        Kanban = text;
-        console.dir("Kanban plugin installed from local");
-      })
-      .catch((error) => console.error(error));
+    const response = await fetch("snippet.css");
+    const text = await response.text();
+    Kanban = text;
+    console.log("Kanban plugin installed from local");
     await plugin.app.registerCSS("Kanban", Kanban);
   } catch (error) {
-    await fetch("https://raw.githubusercontent.com/browneyedsoul/RemNote-Kanban/main/src/snippet.css")
-      .then((response) => response.text())
-      .then((text) => {
-        Kanban = text;
-        console.log("Kanban plugin installed from cdn");
-      })
-      .catch((error) => console.error(error));
+    const response = await fetch("https://raw.githubusercontent.com/browneyedsoul/RemNote-Kanban/main/src/snippet.css");
+    const text = await response.text();
+    Kanban = text;
+    console.log("Kanban plugin installed from cdn");
     await plugin.app.registerCSS("Kanban", Kanban);
   }
   await plugin.app.registerPowerup("Kanban", KANBAN, "A Power-up Rem for making css-kanban", { slots: [] });
@@ -33,6 +27,24 @@ async function onActivate(plugin: ReactRNPlugin) {
       const focusedRem = await plugin.focus.getFocusedRem();
       await focusedRem?.addPowerup(KANBAN);
     },
+  });
+  await plugin.settings.registerStringSetting({
+    id: "colwidth",
+    title: "Max Kanban Column Width",
+    description: "Simply change the column width (px)",
+    defaultValue: "1000",
+  });
+  plugin.track(async (reactivePlugin) => {
+    const colwidthCtrl = await reactivePlugin.settings.getSetting<number>("colwidth");
+    await reactivePlugin.app.registerCSS(
+      "colwidth",
+      `
+#tile__document [data-document-tags~=kanban] [data-rem-container-tags~=kanban]>div>.animate-zoom-into-bullet>.tree-node--children, 
+#tile__document [data-rem-container-tags~=kanban]>.tree-node--children>.animate-zoom-into-bullet>.tree-node--children {
+  max-width: ${colwidthCtrl}px;
+}
+      `,
+    );
   });
 }
 
