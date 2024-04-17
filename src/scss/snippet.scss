@@ -6,7 +6,7 @@
     --kanban-sixdot: #000;
     --kanban-sixdot-dark: #EEE;
     --kanban-bg: #EEE;
-    --kanban-bg-dark: #3B3B3B;
+    --kanban-bg-dark: #4b4848;
     --kanban-bg-rd: #FFEEEB;
     --kanban-bg-rd-dark: #63322B;
     --kanban-bg-or: #FFF0DD;
@@ -230,8 +230,9 @@ $Tables: (
 
     [data-rem-container-tags~=kanban] {
         border: 0.1rem solid $kanban-border;
-        border-radius: 4px;
-        margin: 0.5rem 0 0.5rem 1.6rem;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        margin: 0.5rem 0 0.5rem 0.2rem;
         // Global
             .animate-zoom-into-bullet.flex.flex-col {
                 display: block;
@@ -261,6 +262,9 @@ $Tables: (
         }
         > .tree-node--children {
             @extend %KanbanCol;
+        }
+        > .tree-node--children {
+            border-left: unset !important;
         }
     }
     [data-document-tags~=kanban] {

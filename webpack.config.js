@@ -48,6 +48,10 @@ const config = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, { loader: "css-loader", options: { url: false } }, "postcss-loader"],
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
@@ -85,6 +89,7 @@ const config = {
         { from: "public", to: "" },
         { from: "README.md", to: "" },
         { from: "src/snippet.css", to: "" },
+        { from: "src/App.css", to: "" },
       ],
     }),
     fastRefresh,
