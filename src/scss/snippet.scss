@@ -265,6 +265,7 @@ $Tables: (
         }
         > .tree-node--children {
             border-left: unset !important;
+            padding-left: 1.5rem !important;
         }
     }
     [data-document-tags~=kanban] {
