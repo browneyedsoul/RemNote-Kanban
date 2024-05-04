@@ -185,7 +185,7 @@ $Tables: (
                     margin: .25rem 0 .25rem .2rem;
                     border-radius: .3rem;
                     box-shadow: $kanban-sdw-cell;
-                    margin-left: 1.5rem;
+                    margin-left: .7rem !important;
                     &:not([data-rem-container-tags*="table"]) {
                         > .tree-node--children {
                             margin-right: .5rem;
